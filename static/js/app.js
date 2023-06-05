@@ -49,7 +49,7 @@ dataPromise.then(function (data) {
     let dataBar = [traceBar];
 
     let layoutBar = {
-        title: `Top 10 OTU's for ID: ${individual.id}`,
+        title: `Top 10 Microbial Species for ID: ${individual.id}`,
     };
 
     Plotly.newPlot("bar", dataBar, layoutBar);
@@ -234,7 +234,7 @@ function optionChanged(id) {
         let dataBar = [traceBar];
 
         let layoutBar = {
-            title: `Top 10 OTU's for ID: ${individual.id}`,
+            title: `Top 10 Microbial Species for ID: ${individual.id}`,
         };
 
         Plotly.newPlot("bar", dataBar, layoutBar);
