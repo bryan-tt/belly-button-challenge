@@ -54,10 +54,22 @@ function topTenOTU(data) {
             title: {
                 text: 'OTU ID'
             }
-        }
+        },
+        height: 500
     }
 
     Plotly.newPlot('bubble', dataBubble, layoutBubble);
 }
 
 dataPromise.then(topTenOTU);
+
+// Add demographic meta data
+dataPromise.then(function(data) {
+    let individual = data.metadata[0];
+    let demo = d3.select("#sample-metadata")
+    
+    for (const [key, value] of Object.entries(individual)) {
+        demo.append('p').text(`${key}: ${value}`);
+    }
+
+});
