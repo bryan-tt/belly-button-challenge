@@ -191,8 +191,19 @@ function optionChanged(id) {
     let test = id;
     let index = 0;
 
+    // Find the index of what is currently in the dropdown menu
+    dataPromise.then(function (data) {
+        for (let i = 0; i < data.names.length; i++) {
+            if (test == data.names[i]) {
+                index = i;
+            }
+        }
+    });
+
+
     // Update the metadata
     dataPromise.then(function (data) {
+        let index = 0;
         for (let i = 0; i < data.names.length; i++) {
             if (test == data.names[i]) {
                 index = i;
@@ -262,9 +273,7 @@ function optionChanged(id) {
             height: 500,
         };
 
-        let configBubble = { responsive: true };
-
-        Plotly.newPlot("bubble", dataBubble, layoutBubble, configBubble);
+        Plotly.newPlot("bubble", dataBubble, layoutBubble);
     });
 
     // Update # of washes chart
@@ -356,6 +365,6 @@ function optionChanged(id) {
             },
         };
     
-        Plotly.newPlot("gauge", dataGauge, layoutGauge);
+        Plotly.update("gauge", dataGauge, layoutGauge);
     });
 }
