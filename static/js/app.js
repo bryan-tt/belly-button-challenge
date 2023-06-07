@@ -80,7 +80,7 @@ dataPromise.then(function (data) {
 
     let configBubble = { responsive: true };
 
-    Plotly.newPlot("bubble", dataBubble, layoutBubble);
+    Plotly.newPlot("bubble", dataBubble, layoutBubble, configBubble);
 });
 
 // Initialize demographic meta data
@@ -272,8 +272,9 @@ function optionChanged(id) {
             },
             height: 500,
         };
+        let configBubble = { responsive: true };
 
-        Plotly.newPlot("bubble", dataBubble, layoutBubble);
+        Plotly.newPlot("bubble", dataBubble, layoutBubble, configBubble);
     });
 
     // Update # of washes chart
